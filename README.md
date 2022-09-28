@@ -20,6 +20,9 @@ We will be getting married soon, so this is our wedding website
   * Guests should be able to update their answers later
 * I would like it to have some hidden admin interface to see guest answers
 
+## What i am NOT going to address
+* it does not have to be localized, czech language it is.
+
 ## How am i going to achieve it
 * I don't want to create no react component library, I'll just use some existing one
 * I would like it to be mostly server rendered, so next.js

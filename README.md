@@ -28,3 +28,7 @@ We will be getting married soon, so this is our wedding website
 * Custom domains, `tomazuzkaseberou.cz` and `zuzkaatomseberou.cz`
 
 # I would like to learn new stuff
+
+# How to run this locally
+* npx prisma db push
+* npm run dev

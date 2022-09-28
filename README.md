@@ -19,6 +19,7 @@ We will be getting married soon, so this is our wedding website
   * Saving a letter, if they wish to write us a message
   * Guests should be able to update their answers later
 * I would like it to have some hidden admin interface to see guest answers
+  * no need to authorize (no sensitive info), just hide it under some URL
 
 ## What i am NOT going to address
 * it does not have to be localized, czech language it is.
@@ -35,3 +36,6 @@ We will be getting married soon, so this is our wedding website
 # How to run this locally
 * npx prisma db push
 * npm run dev
+
+# TODO: 
+* add prettier for god's sake

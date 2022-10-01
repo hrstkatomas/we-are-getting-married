@@ -5,6 +5,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
+	const attendance = trpc.useQuery(["attendance.givenAnswer"]);
+	console.log(attendance);
 
 	return (
 		<>
@@ -55,6 +57,8 @@ const Home: NextPage = () => {
 					{hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
 				</div>
 				<SignInButton />
+				<AnswerButton />
+				<UpdateMyAnswerButton />
 			</main>
 		</>
 	);
@@ -101,4 +105,32 @@ const SignInButton = () => {
 			<button onClick={() => signIn("auth0")}>Sign in</button>
 		</>
 	);
+};
+
+const AnswerButton = () => {
+	const mutation = trpc.useMutation(["attendance.answer"]);
+
+	const answer = () => {
+		mutation.mutate({
+			going: true,
+			willBringPartner: true,
+			dish: "REGULAR",
+		});
+	};
+
+	return <button onClick={answer}>Answer!</button>;
+};
+
+const UpdateMyAnswerButton = () => {
+	const mutation = trpc.useMutation(["attendance.updateAnswer"]);
+
+	const updateAnswer = () => {
+		mutation.mutate({
+			going: true,
+			willBringPartner: false,
+			dish: "VEGETARIAN",
+		});
+	};
+
+	return <button onClick={updateAnswer}>Update my answer!</button>;
 };

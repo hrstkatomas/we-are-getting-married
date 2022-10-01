@@ -9,6 +9,9 @@
 		"lint": "next lint",
 		"postinstall": "prisma generate",
 		"prisma-studio": "npx prisma studio",
+		"prisma-create-migration": "prisma migrate dev --name putMigrationNameHere",
+		"prisma-migrate-production": "npx prisma migrate deploy",
+		"prisma-reset-dev-db": "npx prisma migrate reset",
 		"prettier": "prettier . --write"
 	},
 	"dependencies": {

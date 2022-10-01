@@ -41,6 +41,23 @@ We will be getting married soon, so this is our wedding website
 
 -   npx prisma db push
 -   npm run dev
+-   create [railway](railway.app) postgresQL database (note to myself: I logged in via my github account) and fill .env with URL
+
+`.env` example: 
+```shell
+# Prisma
+# DATABASE_URL=file:./db.sqlite
+DATABASE_URL='...'
+
+# Next Auth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET='...'
+
+# Next Auth Auth0 Provider
+AUTH0_CLIENT_ID='...'
+AUTH0_CLIENT_SECRET='...'
+AUTH0_ISSUER='...'
+```
 
 # TODO:
 

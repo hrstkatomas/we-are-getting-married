@@ -5,6 +5,10 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { config } from "@react-spring/core";
 import Image from "next/image";
 import welcomeImage from "../../public/Welcome.jpg";
+import svgClouds from "../../public/svgClouds.svg";
+import svgBackScene from "../../public/svgBackScene.svg";
+import svgMiddleScene from "../../public/svgMiddleScene.svg";
+import svgFrontScene from "../../public/svgFrontScene.svg";
 
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
@@ -15,11 +19,11 @@ const Home: NextPage = () => {
 		<main className="container-sm mx-auto flex flex-col items-center justify-center min-h-screen p-4">
 			<Parallax pages={4} config={config.default}>
 				<ParallaxLayer speed={0.1} offset={0.08} className={"bg-stone-100"}>
-					<Image src={welcomeImage} alt={"Úvodní fotka Toma a Zuzky"} />
+					<Image src={welcomeImage} priority alt={"Úvodní fotka Toma a Zuzky"} />
 				</ParallaxLayer>
 
-				<ParallaxLayer>
-					<div className={"flex flex-col items-center justify-center bg-stone-100"}>
+				<ParallaxLayer factor={0.2} className={"flex flex-col items-center justify-center bg-stone-100"}>
+					<div>
 						<h1
 							className={
 								"text-4xl sm:text-5xl md:text-6xl font-cairo text-gray-700 animate-appear tracking-wider"
@@ -37,7 +41,7 @@ const Home: NextPage = () => {
 					</div>
 				</ParallaxLayer>
 
-				<ParallaxLayer offset={0.9} speed={1}>
+				<ParallaxLayer sticky={{ start: 1, end: 2 }} factor={0.1} offset={0.9} speed={1}>
 					<div className="text-md breadcrumbs h-1/6 flex flex-col items-center justify-center bg-stone-100">
 						<ul>
 							<li>
@@ -52,8 +56,18 @@ const Home: NextPage = () => {
 						</ul>
 					</div>
 				</ParallaxLayer>
-				<ParallaxLayer offset={0.9999} speed={1} className="bg-slate-800">
-					TODO: some info
+
+				<ParallaxLayer offset={1} speed={0.5} className="bg-slate-800">
+					<Image src={svgClouds} alt={"mraky"} layout={"fill"} />
+				</ParallaxLayer>
+				<ParallaxLayer offset={1} speed={0.7}>
+					<Image src={svgBackScene} alt={"hory"} layout={"fill"} />
+				</ParallaxLayer>
+				<ParallaxLayer offset={1} speed={0.9}>
+					<Image src={svgMiddleScene} alt={"kopce"} layout={"fill"} />
+				</ParallaxLayer>
+				<ParallaxLayer offset={1} speed={1.1}>
+					<Image src={svgFrontScene} alt={"stodola"} layout={"fill"} />
 				</ParallaxLayer>
 			</Parallax>
 

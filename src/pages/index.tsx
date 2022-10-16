@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { trpc } from "../utils/trpc";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { config } from "@react-spring/core";
+import Image from "next/image";
+import welcomeImage from "../../public/Welcome.jpg";
 
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
@@ -10,57 +12,58 @@ const Home: NextPage = () => {
 	console.log(attendance);
 
 	return (
-		<>
-			<Head>
-				<title>Tom a Zuzka se berou</title>
-				<meta name="description" content="Tom a Zuzka se berou" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
+		<main className="container-sm mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+			<Parallax pages={4} config={config.default}>
+				<ParallaxLayer speed={0.1} offset={0.08} className={"bg-stone-100"}>
+					<Image src={welcomeImage} alt={"Úvodní fotka Toma a Zuzky"} />
+				</ParallaxLayer>
 
-			<main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
-				<Parallax pages={4}>
-					<ParallaxLayer
-						speed={0.5}
-						style={{
-							backgroundImage: "url(/Welcome.jpg)",
-							backgroundSize: "cover",
-							backgroundPosition: "center",
-						}}
-					></ParallaxLayer>
+				<ParallaxLayer>
+					<div className={"flex flex-col items-center justify-center bg-stone-100"}>
+						<h1
+							className={
+								"text-4xl sm:text-5xl md:text-6xl font-cairo text-gray-700 animate-appear tracking-wider"
+							}
+						>
+							Tom <span className={"font-dancing-sript text-stone-400"}>&</span> Zuzka
+						</h1>
+						<h2
+							className={
+								"text-xl sm:text-2xl md:text-3xl font-dancing-sript text-stone-400  animate-appear-delayed"
+							}
+						>
+							se budou brát
+						</h2>
+					</div>
+				</ParallaxLayer>
 
-					<ParallaxLayer offset={0.75} speed={1.5}>
-						{/*<div className="hero min-h-screen bg-base-100/10">*/}
-						{/*	<div className="hero-content bg-opacity-60"></div>*/}
-						{/*	<div className="hero-content text-center text-neutral-content">*/}
-						{/*		<div className="max-w-lg">*/}
-						{/*			<h1 className="mb-5 text-5xl font-bold">Budeme se brát</h1>*/}
-						{/*			<p className="mb-5">Tom a Zuzka se berou!</p>*/}
-						{/*		</div>*/}
-						{/*	</div>*/}
-						{/*</div>*/}
-						<div className="card w-96 glass shadow-xl text-gray-700">
-							<div className="card-body">
-								<h1 className="card-title">Budeme se brát!</h1>
-								<div className="card-actions justify-end">
-									<p>Tom a Zuzka se berou.</p>
-								</div>
-							</div>
-						</div>
-					</ParallaxLayer>
+				<ParallaxLayer offset={0.9} speed={1}>
+					<div className="text-md breadcrumbs h-1/6 flex flex-col items-center justify-center bg-stone-100">
+						<ul>
+							<li>
+								<a>Home</a>
+							</li>
+							<li>
+								<a>Documents</a>
+							</li>
+							<li>
+								<a>Add Document</a>
+							</li>
+						</ul>
+					</div>
+				</ParallaxLayer>
+				<ParallaxLayer offset={0.9999} speed={1} className="bg-slate-800">
+					TODO: some info
+				</ParallaxLayer>
+			</Parallax>
 
-					<ParallaxLayer offset={0.9} speed={1} className="bg-slate-800">
-						TODO: some info
-					</ParallaxLayer>
-				</Parallax>
-
-				<div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
-					{hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
-				</div>
-				<SignInButton />
-				<AnswerButton />
-				<UpdateMyAnswerButton />
-			</main>
-		</>
+			<div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
+				{hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
+			</div>
+			<SignInButton />
+			<AnswerButton />
+			<UpdateMyAnswerButton />
+		</main>
 	);
 };
 

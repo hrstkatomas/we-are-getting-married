@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
 	return (
-		<Html>
+		<Html data-theme="valentine">
 			<Head>
 				<title>Tom a Zuzka se berou</title>
 				<meta name="description" content="Tom a Zuzka se berou" />

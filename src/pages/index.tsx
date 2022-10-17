@@ -18,22 +18,34 @@ const Home: NextPage = () => {
 	return (
 		<main className="container-sm mx-auto flex flex-col items-center justify-center min-h-screen p-4">
 			<Parallax pages={4} config={config.default}>
-				<ParallaxLayer speed={0.1} offset={0.08} className={"bg-stone-100"}>
-					<Image src={welcomeImage} priority alt={"Úvodní fotka Toma a Zuzky"} />
+				<ParallaxLayer offset={0.9999} factor={1.5} speed={0.5} className="bg-base-100">
+					<Image src={svgClouds} alt={"mraky"} layout={"fill"} />
 				</ParallaxLayer>
 
-				<ParallaxLayer factor={0.2} className={"flex flex-col items-center justify-center bg-stone-100"}>
+				<ParallaxLayer speed={0.1} offset={0.1} className={"bg-base-100"}>
+					<div className={"relative h-full max-w-6xl m-auto"}>
+						<Image
+							src={welcomeImage}
+							priority
+							alt={"Úvodní fotka Toma a Zuzky"}
+							layout={"fill"}
+							objectFit={"cover"}
+						/>
+					</div>
+				</ParallaxLayer>
+
+				<ParallaxLayer factor={0.2} className={"flex flex-col items-center justify-center bg-base-100"}>
 					<div>
 						<h1
 							className={
-								"text-4xl sm:text-5xl md:text-6xl font-cairo text-gray-700 animate-appear tracking-wider"
+								"text-4xl sm:text-5xl md:text-6xl font-cairo text-base-content animate-appear tracking-wider"
 							}
 						>
-							Tom <span className={"font-dancing-sript text-stone-400"}>&</span> Zuzka
+							Tom <span className={"font-dancing-sript text-primary"}>&</span> Zuzka
 						</h1>
 						<h2
 							className={
-								"text-xl sm:text-2xl md:text-3xl font-dancing-sript text-stone-400  animate-appear-delayed"
+								"text-xl sm:text-2xl md:text-3xl font-dancing-sript text-primary animate-appear-delayed"
 							}
 						>
 							se budou brát
@@ -41,8 +53,14 @@ const Home: NextPage = () => {
 					</div>
 				</ParallaxLayer>
 
-				<ParallaxLayer sticky={{ start: 1, end: 2 }} factor={0.1} offset={0.9} speed={1}>
-					<div className="text-md breadcrumbs h-1/6 flex flex-col items-center justify-center bg-stone-100">
+				<ParallaxLayer
+					sticky={{ start: 1, end: 2 }}
+					factor={0.01}
+					offset={0.9}
+					speed={1}
+					className={"pointer-events-none"}
+				>
+					<div className="text-md breadcrumbs h-20 flex flex-col items-center justify-center bg-stone-100 pointer-events-auto">
 						<ul>
 							<li>
 								<a>Home</a>
@@ -57,17 +75,67 @@ const Home: NextPage = () => {
 					</div>
 				</ParallaxLayer>
 
-				<ParallaxLayer offset={1} speed={0.5} className="bg-slate-800">
-					<Image src={svgClouds} alt={"mraky"} layout={"fill"} />
-				</ParallaxLayer>
 				<ParallaxLayer offset={1} speed={0.7}>
 					<Image src={svgBackScene} alt={"hory"} layout={"fill"} />
 				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={0.9}>
+				<ParallaxLayer offset={1} speed={0.1} className={"flex flex-col items-center justify-center"}>
+					<div className="card bg-base-100 hover:shadow-xl bg-opacity-0 hover:bg-opacity-80 ease-in-out duration-500">
+						<div className="card-body">
+							<h2 className="card-title font-dancing-sript text-lg sm:text-xl lg:text-2xl mb-5">
+								Svatba se koná
+							</h2>
+							<h1 className={"font-bold text-4xl sm:text-7xl lg:text-8xl font-cairo"}>13. května 2023</h1>
+							<h2 className={"text-2xl sm:text-4xl lg:text-5xl"}>
+								<span className={"font-dancing-sript"}>Sraz:</span> 10:30 - 11:00
+							</h2>
+							<h2 className={"text-2xl sm:text-4xl lg:text-5xl"}>
+								<span className={"font-dancing-sript"}>Obřad:</span> 11:30
+							</h2>
+						</div>
+					</div>
+				</ParallaxLayer>
+				<ParallaxLayer offset={1} speed={0.9} className={"pointer-events-none"}>
 					<Image src={svgMiddleScene} alt={"kopce"} layout={"fill"} />
 				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={1.1}>
+				<ParallaxLayer offset={1} speed={1} className={"pointer-events-none"}>
 					<Image src={svgFrontScene} alt={"stodola"} layout={"fill"} />
+				</ParallaxLayer>
+
+				<ParallaxLayer offset={1.999} speed={1} className={"bg-base-200"}>
+					<main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+						<h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold font-dancing-sript text-base-content">
+							Co se to děje?
+						</h1>
+						<p className="font-cairo text-2xl text-primary">
+							Milí svatebčané, tímto bychom Vás chtěli pozvat, abyste s námi strávili náš svatební den!
+						</p>
+						<div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
+							<InfoCard
+								name="Místo a příjezd"
+								description="Místo i hostina se budou konat na jednom místě a to v Holyňské stodole v Praze 13.&nbsp;května&nbsp;2023. Obřad začne v 11:30, proto prosíme svatebčany, aby přijeli nejpozději půl hodiny předem. Počet parkovacích míst v místě je omezen, větší parkoviště je 5 minut chůze."
+							/>
+							<InfoCard
+								name="Ubytování"
+								description="K dispozici budeme mít celý penzion, lůžek však není mnoho a na všechny se bohužel nedostane. Přednost budou mít mimopražští hosté a hosté s dětmi. Protože budeme ale v Praze, taxíky/Bolty/Ubery/MHD Vás rozvezou do vlastních postýlek."
+							/>
+							<InfoCard
+								name="Občerstvení"
+								description="Již od příjezdu hostí bude připraveno občerstvení, na které po obřadě navážeme společným obědem a večer plánujeme grilovat. Nápoje potečou proudem až do noci, k dispozici bude plzeň, víno, nealko, káva."
+							/>
+							<InfoCard
+								name="Dresscode"
+								description="Svatba je slavnostní událost, proto prosíme, tepláky nechte doma. S formálností to také není potřeba přehnat, obřad bude v zahradě."
+							/>
+							<InfoCard
+								name="Dary"
+								description="Největší radost nám udělá dárek, který se vejde do obálky. "
+							/>
+							<InfoCard
+								name="Potvrzení účasti"
+								description="V následujícím formuláři, prosím, potvrď svou účast. Odpověď můžeš i později upravit."
+							/>
+						</div>
+					</main>
 				</ParallaxLayer>
 			</Parallax>
 
@@ -86,24 +154,23 @@ export default Home;
 type TechnologyCardProps = {
 	name: string;
 	description: string;
-	documentation: string;
 };
 
-const TechnologyCard = ({ name, description, documentation }: TechnologyCardProps) => {
+const InfoCard = ({ name, description }: TechnologyCardProps) => {
 	return (
-		<section className="flex flex-col justify-center p-6 duration-500 border-2 border-gray-500 rounded shadow-xl motion-safe:hover:scale-105">
-			<h2 className="text-lg text-gray-700">{name}</h2>
-			<p className="text-sm text-gray-600">{description}</p>
-			<a
-				className="mt-3 text-sm underline text-violet-500 decoration-dotted underline-offset-2"
-				href={documentation}
-				target="_blank"
-				rel="noreferrer"
-			>
-				Documentation
-			</a>
-		</section>
+		<div className="card bg-base-100 shadow-xl flex flex-col justify-center p-6 duration-500  shadow-xl motion-safe:hover:scale-105">
+			<div className="card-body">
+				<h2 className="card-title font-dancing-sript">{name}</h2>
+				<p>{description}</p>
+			</div>
+		</div>
 	);
+	// return (
+	// 	<section className="flex flex-col justify-center p-6 duration-500 border-2 bg-neutral border rounded shadow-xl motion-safe:hover:scale-105">
+	// 		<h2 className="text-lg text-base-content">{name}</h2>
+	// 		<p className="text-sm text-neutral-content">{description}</p>
+	// 	</section>
+	// );
 };
 
 const SignInButton = () => {

@@ -17,6 +17,9 @@ module.exports = {
 				appear: "fade 1.5s ease-in",
 				"appear-delayed": "fade 3s ease-in",
 			},
+			colors: {
+				"midnight-purple": "#a48aa3",
+			},
 		},
 	},
 	plugins: [require("daisyui")],

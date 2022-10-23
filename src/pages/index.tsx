@@ -21,7 +21,6 @@ const Home: NextPage = () => {
 	console.log(attendance);
 
 	const parallaxRef = useRef<IParallax>(null);
-	const informationRef = useRef<HTMLDivElement>(null);
 
 	return (
 		<main className="container-sm mx-auto flex flex-col items-center justify-center min-h-screen p-4">
@@ -68,7 +67,7 @@ const Home: NextPage = () => {
 				</ParallaxLayer>
 
 				<ParallaxLayer offset={1.999} speed={1}>
-					<Information ref={informationRef} />
+					<Information />
 				</ParallaxLayer>
 			</Parallax>
 

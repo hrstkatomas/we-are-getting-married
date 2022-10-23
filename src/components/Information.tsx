@@ -1,12 +1,11 @@
 import { InfoCard } from "./InfoCard";
+import { Title } from "./Title";
 
 export function Information() {
 	return (
 		<div className="bg-base-200">
 			<div className={"container mx-auto flex flex-col items-center justify-center p-4"}>
-				<h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold font-dancing-sript text-base-content">
-					Co se to děje?
-				</h1>
+				<Title>Co se to děje?</Title>
 				<p className="font-cairo text-2xl text-primary">
 					Milí svatebčané, tímto bychom Vás chtěli pozvat, abyste s námi strávili náš svatební den!
 				</p>

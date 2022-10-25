@@ -16,6 +16,7 @@ import { Navigation } from "../components/Navigation";
 import { TimeOfArival } from "../components/TimeOfArival";
 import { BehindTheScenes } from "../components/BehindTheScenes";
 import { Recapitulation } from "../components/Recapitulation";
+import { LookingForwardToIt } from "../components/LookingForwardToIt";
 
 const Home: NextPage = () => {
 	const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
@@ -71,6 +72,7 @@ const Home: NextPage = () => {
 				<ParallaxLayer offset={1.999} speed={1}>
 					<Information />
 					<Recapitulation />
+					<LookingForwardToIt />
 				</ParallaxLayer>
 			</Parallax>
 

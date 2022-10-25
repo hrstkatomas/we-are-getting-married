@@ -8,7 +8,7 @@ import { CountDown } from "./CountDown";
 
 export function Recapitulation() {
 	return (
-		<div className="bg-base-100" id={"recap"}>
+		<div className="bg-base-100">
 			<div className={"container mx-auto flex flex-col items-center justify-center p-4"}>
 				<Title>Rekapitulace</Title>
 				<div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3 w-full">

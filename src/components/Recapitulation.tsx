@@ -12,19 +12,26 @@ export function Recapitulation() {
 			<div className={"container mx-auto flex flex-col items-center justify-center p-4"}>
 				<Title>Rekapitulace</Title>
 				<div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3 w-full">
-					<div>
-						<p className={"font-cairo text-primary-content text-xl font-bold"}>13. května</p>
-						<p className={"font-cairo text-primary-content text-xl font-bold"}>10:30 - 11:00</p>
-						<p className={"font-cairo text-primary-content text-xl font-bold"}>Holyňská stodola</p>
-						<iframe
-							className={"w-full aspect-video md:aspect-square"}
-							loading="lazy"
-							allowFullScreen
-							src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ672Ch2iXC0cRXdr78q8ATQY&key=AIzaSyA2YeKQ2QLiZWlyQTQvSg1VZ-d69BBEj5I"
-						/>
-						<CountDown />
+					<div className={"text-base-content"}>
+						<p className={"font-cairo text-3xl font-bold"}>13. května, 10:30 - 11:00</p>
+						<p className={"font-dancing-sript text-xl font-bold my-6"}>to je za</p>
+						<div className={"flex justify-center mb-8"}>
+							<CountDown />
+						</div>
+
+						<div className="card bg-base-300 shadow-xl">
+							<div className="card-body items-center text-center">
+								<h2 className="card-title">Holyňská stodola</h2>
+							</div>
+							<iframe
+								className={"w-full aspect-video"}
+								loading="lazy"
+								allowFullScreen
+								src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ672Ch2iXC0cRXdr78q8ATQY&key=AIzaSyA2YeKQ2QLiZWlyQTQvSg1VZ-d69BBEj5I"
+							/>
+						</div>
 					</div>
-					<div>
+					<div className={"grid justify-center"}>
 						<Avatar
 							title={"ženich"}
 							name={"Tomáš Hrska"}
@@ -55,16 +62,10 @@ export function Recapitulation() {
 							image={bridesWitnessAvatar}
 							imageAlt={"avatar svědka nevěty"}
 							phone={"776 290 991"}
-							email={"TODO"}
+							email={"bara.senkova@seznam.cz"}
 						/>
 					</div>
 				</div>
-				{/*<div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">*/}
-				{/*	{hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}*/}
-				{/*</div>*/}
-				{/*<SignInButton />*/}
-				{/*<AnswerButton />*/}
-				{/*<UpdateMyAnswerButton />*/}
 			</div>
 		</div>
 	);

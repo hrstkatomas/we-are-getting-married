@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image";
-import groomAvatar from "../../public/groomAvatar.jpg";
+import { Link } from "./Link";
 
 type AvatarProps = {
 	image: string | StaticImageData;
@@ -13,7 +13,7 @@ export function Avatar({ image, imageAlt, title, name, phone, email }: AvatarPro
 	const telNoSpaces = phone.replace(/\s/g, "");
 
 	return (
-		<div className="flex items-center space-x-2 m-5">
+		<div className="flex items-center space-x-2 m-4">
 			<div className="avatar">
 				<div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
 					<Image src={image} alt={imageAlt} className="mask mask-squircle" />
@@ -23,10 +23,10 @@ export function Avatar({ image, imageAlt, title, name, phone, email }: AvatarPro
 				<div className="text-base-content/70 text-sm">{title}</div>
 				<div className="text-lg font-extrabold">{name}</div>
 				<div className="text-base-content/70 text-sm">
-					<a href={`tel:${telNoSpaces}`}>{phone}</a>
+					<Link href={`tel:${telNoSpaces}`}>{phone}</Link>
 				</div>
 				<div className="text-base-content/70 text-sm">
-					<a href={`mailto:${email}`}>{email}</a>
+					<Link href={`mailto:${email}`}>{email}</Link>
 				</div>
 			</div>
 		</div>

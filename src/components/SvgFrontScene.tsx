@@ -22,8 +22,7 @@ export function SvgFrontScene() {
 					className={"fill-base-200"}
 				/>
 				<text
-					fill="#632d3b"
-					className={"font-cairo text-[38px] fill-primary-content"}
+					className={"font-cairo text-[38px] fill-base-content"}
 					transform="matrix(1.156259, 0, 0, 1.156259, -34.336708, 10.739557)"
 				>
 					<tspan x="83.301" y="121.317">
@@ -31,8 +30,7 @@ export function SvgFrontScene() {
 					</tspan>
 				</text>
 				<text
-					fill="#632d3b"
-					className={"font-cairo text-[38px] fill-primary-content"}
+					className={"font-cairo text-[38px] fill-base-content"}
 					transform="matrix(1.066207, 0, 0, 1.096774, -285.495148, -268.461487)"
 					x="352.665"
 					y="412.581"

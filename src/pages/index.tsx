@@ -26,12 +26,12 @@ const Home: NextPage = () => {
 	const parallaxRef = useRef<IParallax>(null);
 
 	return (
-		<main className="container-sm mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+		<main>
 			<Head>
 				<title>Tom a Zuzka se berou</title>
 			</Head>
 
-			<Parallax pages={7} config={config.default} ref={parallaxRef}>
+			<Parallax pages={7} config={config.default} ref={parallaxRef} className={"z-10"}>
 				<ParallaxLayer offset={0.9999} factor={1.5} speed={0.5} className="bg-base-100">
 					<SvgClouds />
 				</ParallaxLayer>

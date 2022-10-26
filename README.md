@@ -26,6 +26,7 @@ We will be getting married soon, so this is our wedding website
 ## What i am NOT going to address
 
 -   it does not have to be localized, czech language it is.
+- I might not need tests, maybe Ill add some just to make my life easier
 
 ## How am i going to achieve it
 
@@ -33,7 +34,10 @@ We will be getting married soon, so this is our wedding website
 -   I would like it to be mostly server rendered, so next.js
 -   Sorry, probably no jest tests
 -   I would like to ship it quite fast to be sure production environment is working
--   Custom domains, `tomazuzkaseberou.cz` and `zuzkaatomseberou.cz`
+-   Custom domains, `tomazuzkaseberou.cz`
+    - domain nergistered at https://www.domena.cz/
+-   Hosting at Vercel
+-   Database at Railway
 
 # I would like to learn new stuff
 

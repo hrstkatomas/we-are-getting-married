@@ -38,6 +38,7 @@ We will be getting married soon, so this is our wedding website
     - domain nergistered at https://www.domena.cz/
 -   Hosting at Vercel
 -   Database at Railway
+-   Authentication handled by Auth0
 
 # I would like to learn new stuff
 

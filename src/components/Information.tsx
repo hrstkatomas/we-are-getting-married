@@ -13,7 +13,7 @@ export function Information() {
 				</p>
 				<div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3 w-full">
 					<InfoCard name="Místo a příjezd">
-						Místo i hostina se budou konat na jednom místě a to v{" "}
+						Obřad i hostina se budou konat na jednom místě a to v{" "}
 						<Link href={"http://holynskastodola.cz/"}>Holyňské stodole</Link> v Praze
 						13.&nbsp;května&nbsp;2023. Obřad začne v 11:30, proto prosíme svatebčany, aby přijeli nejpozději
 						půl hodiny předem. Počet parkovacích míst v místě je omezen,{" "}

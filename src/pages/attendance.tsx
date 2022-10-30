@@ -112,9 +112,17 @@ enum RequestState {
 }
 
 export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => {
-	const [going, setGoing] = useState(attendance?.going ?? true);
-	const [numberOfAttendees, setNumberOfAttendees] = useState(attendance?.numberOfAttendees ?? 1);
-	const [letter, setLetter] = useState(attendance?.letter ?? "");
+	const [going, setGoing] = useState(true);
+	const [numberOfAttendees, setNumberOfAttendees] = useState(1);
+	const [letter, setLetter] = useState("");
+
+	useEffect(() => {
+		if (attendance) {
+			setGoing(attendance.going);
+			setNumberOfAttendees(attendance.numberOfAttendees);
+			if (attendance.letter) setLetter(attendance.letter);
+		}
+	}, [attendance]);
 
 	const [requestState, setRequestState] = useState(RequestState.IDLE);
 	useEffect(() => {

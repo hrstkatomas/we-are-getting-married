@@ -1,6 +1,4 @@
 import type { NextPage } from "next";
-import { trpc } from "../utils/trpc";
-import { useSession, signIn, signOut } from "next-auth/react";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { config } from "@react-spring/core";
 import { useRef } from "react";
@@ -19,10 +17,6 @@ import { Recapitulation } from "../components/Recapitulation";
 import { LookingForwardToIt } from "../components/LookingForwardToIt";
 
 const Home: NextPage = () => {
-	const hello = trpc.useQuery(["example.hello", { text: "from tRPC" }]);
-	const attendance = trpc.useQuery(["attendance.givenAnswer"]);
-	console.log(attendance);
-
 	const parallaxRef = useRef<IParallax>(null);
 
 	return (
@@ -77,61 +71,8 @@ const Home: NextPage = () => {
 			</Parallax>
 
 			<BehindTheScenes />
-
-			{/*<div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">*/}
-			{/*	{hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}*/}
-			{/*</div>*/}
-			{/*<SignInButton />*/}
-			{/*<AnswerButton />*/}
-			{/*<UpdateMyAnswerButton />*/}
 		</main>
 	);
 };
 
 export default Home;
-
-const SignInButton = () => {
-	const { data: session } = useSession();
-	if (session) {
-		return (
-			<>
-				Signed in as {session.user?.email} <br />
-				<button onClick={() => signOut()}>Sign out</button>
-			</>
-		);
-	}
-	return (
-		<>
-			Not signed in <br />
-			<button onClick={() => signIn("auth0")}>Sign in</button>
-		</>
-	);
-};
-
-const AnswerButton = () => {
-	const mutation = trpc.useMutation(["attendance.answer"]);
-
-	const answer = () => {
-		mutation.mutate({
-			going: true,
-			willBringPartner: true,
-			dish: "REGULAR",
-		});
-	};
-
-	return <button onClick={answer}>Answer!</button>;
-};
-
-const UpdateMyAnswerButton = () => {
-	const mutation = trpc.useMutation(["attendance.updateAnswer"]);
-
-	const updateAnswer = () => {
-		mutation.mutate({
-			going: true,
-			willBringPartner: false,
-			dish: "VEGETARIAN",
-		});
-	};
-
-	return <button onClick={updateAnswer}>Update my answer!</button>;
-};

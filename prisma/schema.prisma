@@ -62,18 +62,12 @@ model VerificationToken {
 }
 
 // Attendance model
-enum Dish {
-  REGULAR
-  VEGETARIAN
-}
-
 model Attendance {
-    id               Int      @id @default(autoincrement())
-    author           User     @relation(fields: [authorId], references: [id])
-    authorId         String   @unique
-    going            Boolean  @default(true)
-    willBringPartner Boolean  @default(false)
-    letter           String?
-    dish             Dish     @default(REGULAR)
-    createdAt        DateTime @default(now())
+    id                Int      @id @default(autoincrement())
+    author            User     @relation(fields: [authorId], references: [id])
+    authorId          String   @unique
+    going             Boolean  @default(true)
+    numberOfAttendees Int      @default(1)
+    letter            String?
+    createdAt         DateTime @default(now())
 }

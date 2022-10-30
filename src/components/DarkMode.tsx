@@ -26,8 +26,12 @@ export const COOKIE_KEY = "theme";
 export const LIGHT_THEME = "valentine";
 const DARK_THEME = "dracula";
 
-export function DarkModeButton() {
+export const useTheme = () => {
 	useLayoutEffect(() => applyTheme(getThemeCookie()), []);
+};
+
+export function DarkModeButton() {
+	useTheme();
 
 	const [toggle, setToggle] = useState(getThemeCookie() === DARK_THEME);
 

@@ -1,6 +1,7 @@
 import { InfoCard } from "./InfoCard";
 import { Title } from "./Title";
 import { Link } from "./Link";
+import { LinkToAttendance } from "./NavLinks";
 
 export function Information() {
 	return (
@@ -47,6 +48,9 @@ export function Information() {
 					<InfoCard name="Dary">Největší radost nám udělá dárek, který se vejde do obálky.</InfoCard>
 					<InfoCard name="Potvrzení účasti">
 						V následujícím formuláři, prosím, potvrď svou účast. Odpověď můžeš i později upravit.
+						<div className={"flex justify-center"}>
+							<LinkToAttendance />
+						</div>
 					</InfoCard>
 				</div>
 			</div>

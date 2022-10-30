@@ -4,9 +4,8 @@ import { z } from "zod";
 
 const attendanceAnswerParser = z.object({
 	going: z.boolean(),
-	willBringPartner: z.boolean(),
+	numberOfAttendees: z.number(),
 	letter: z.string().optional(),
-	dish: z.enum(["REGULAR", "VEGETARIAN"]),
 });
 
 function throwIfUnauthorized(objectExists: any): asserts objectExists {

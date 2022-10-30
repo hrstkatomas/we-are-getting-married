@@ -13,9 +13,7 @@ const getThemeCookie = (): string => {
 	const theme = cookie.parse(document.cookie)[COOKIE_KEY];
 	if (theme) return theme;
 
-	const preferedTheme = getPrefersDarkTheme() ? DARK_THEME : LIGHT_THEME;
-	setThemeCookie(preferedTheme);
-	return preferedTheme;
+	return getPrefersDarkTheme() ? DARK_THEME : LIGHT_THEME;
 };
 
 const applyTheme = (theme: string): void => {

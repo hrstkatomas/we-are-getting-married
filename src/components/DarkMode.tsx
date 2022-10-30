@@ -1,45 +1,41 @@
 import { useLayoutEffect, useState } from "react";
+import cookie from "cookie";
 
-export class DarkMode {
-	private static instance: DarkMode = new DarkMode();
-	public static getInstance = (): DarkMode => this.instance;
+const setThemeCookie = (theme: string): void => {
+	document.cookie = cookie.serialize(COOKIE_KEY, theme);
+};
 
-	private readonly STORAGE_KEY = "theme";
-	private readonly LIGHT_THEME = "valentine";
-	private readonly DARK_THEME = "dracula";
+const getPrefersDarkTheme = (): boolean => {
+	return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
 
-	private storeValue = (theme: string): void => localStorage.setItem(this.STORAGE_KEY, theme);
-	private getValue = (): string | null => localStorage.getItem(this.STORAGE_KEY);
+const getThemeCookie = (): string => {
+	const theme = cookie.parse(document.cookie)[COOKIE_KEY];
+	if (theme) return theme;
 
-	private udateHtmlsDataTheme = (theme: string): void => document.documentElement.setAttribute("data-theme", theme);
+	const preferedTheme = getPrefersDarkTheme() ? DARK_THEME : LIGHT_THEME;
+	setThemeCookie(preferedTheme);
+	return preferedTheme;
+};
 
-	private getPrefersDarkTheme = (): boolean =>
-		window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+const applyTheme = (theme: string): void => {
+	document.documentElement.setAttribute("data-theme", theme);
+};
 
-	private getTheme() {
-		const storedValue = this.getValue();
-		if (storedValue) return storedValue;
-
-		const themeByPreference = this.getPrefersDarkTheme() ? this.DARK_THEME : this.LIGHT_THEME;
-		this.storeValue(themeByPreference);
-		return themeByPreference;
-	}
-
-	setTheme(): void {
-		this.udateHtmlsDataTheme(this.getTheme());
-	}
-
-	toggleValue() {
-		this.storeValue(this.getTheme() === this.LIGHT_THEME ? this.DARK_THEME : this.LIGHT_THEME);
-		this.setTheme();
-	}
-}
+export const COOKIE_KEY = "theme";
+export const LIGHT_THEME = "valentine";
+const DARK_THEME = "dracula";
 
 export function DarkModeButton() {
-	const darkMode = DarkMode.getInstance();
-	const [toggle, setToggle] = useState(false);
-	useLayoutEffect(() => darkMode.setTheme(), [darkMode]);
-	useLayoutEffect(() => darkMode.toggleValue(), [toggle, darkMode]);
+	useLayoutEffect(() => applyTheme(getThemeCookie()), []);
+
+	const [toggle, setToggle] = useState(getThemeCookie() === DARK_THEME);
+
+	useLayoutEffect(() => {
+		const newTheme = toggle ? DARK_THEME : LIGHT_THEME;
+		setThemeCookie(newTheme);
+		applyTheme(newTheme);
+	}, [toggle]);
 
 	return <input type="checkbox" className="toggle" checked={toggle} onChange={() => setToggle(!toggle)} />;
 }

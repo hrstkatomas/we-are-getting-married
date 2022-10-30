@@ -119,11 +119,13 @@ export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => 
 	const [requestState, setRequestState] = useState(RequestState.IDLE);
 	useEffect(() => {
 		if (requestState === RequestState.SUCCESS) {
-			setTimeout(() => setRequestState(RequestState.IDLE), 2000);
-			window.scrollTo({
-				top: 100_000, // let's call this a bottom of a page.
-				behavior: "smooth",
-			});
+			setTimeout(() => {
+				setRequestState(RequestState.IDLE);
+				window.scrollTo({
+					top: 100_000, // let's call this a bottom of a page.
+					behavior: "smooth",
+				});
+			}, 2000);
 		}
 	}, [requestState]);
 

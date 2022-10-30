@@ -10,7 +10,7 @@ export function LinkToAttendance() {
 		: "Stiskem tlačítka přejdeš na další stránku, kde potvrdíš rezervaci.";
 
 	return (
-		<div className="tooltip" data-tip={tooltip}>
+		<div className="tooltip mt-4" data-tip={tooltip}>
 			<Link href={"/attendance"} legacyBehavior>
 				<a className={`btn ${attendance ? "btn-success" : "btn-active"}`}>
 					{attendance ? "✓ Účast povrzena" : "Povrdit účast"}

@@ -11,6 +11,7 @@ export function HomeImage() {
 				alt={"Úvodní fotka Toma a Zuzky"}
 				layout={"fill"}
 				objectFit={"cover"}
+				quality={100}
 			/>
 		</div>
 	);

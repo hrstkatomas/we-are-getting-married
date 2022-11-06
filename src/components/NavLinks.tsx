@@ -5,6 +5,7 @@ export function LinkToAttendance() {
 	const response = trpc.useQuery(["attendance.givenAnswer"]);
 	const attendance = response.data?.attendance || null;
 
+
 	const tooltip = attendance
 		? "Tvou odpověď už známe, můžeš ji však ještě upravit."
 		: "Stiskem tlačítka přejdeš na další stránku, kde potvrdíš rezervaci.";
@@ -13,7 +14,7 @@ export function LinkToAttendance() {
 		<div className="tooltip mt-4" data-tip={tooltip}>
 			<Link href={"/attendance"} legacyBehavior>
 				<a className={`btn ${attendance ? "btn-success" : "btn-active"}`}>
-					{attendance ? "✓ Účast povrzena" : "Povrdit účast"}
+					{attendance ? attendance.going ? "✓ Účast potvrzena" : "Mrzí nás, že nepřijdeš" : "Potvrdit účast"}
 				</a>
 			</Link>
 		</div>

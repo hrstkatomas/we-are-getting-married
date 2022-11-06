@@ -166,7 +166,7 @@ export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => 
 			</h2>
 			<div className="form-control">
 				<label className="label cursor-pointer">
-					<span className="label-text">Já příjdu!</span>
+					<span className="label-text">Já přijdu!</span>
 					<input
 						type="checkbox"
 						checked={going}

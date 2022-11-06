@@ -46,7 +46,7 @@ export function Navigation({ parallaxRef }: NavigationProps) {
 						{pageLinks}
 					</ul>
 				</div>
-				<a className="btn btn-ghost normal-case text-xl">Bude svatba</a>
+				<a className="btn btn-ghost normal-case text-xl font-dancing-sript">Bude svatba</a>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal p-0">{pageLinks}</ul>

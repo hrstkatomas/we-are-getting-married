@@ -8,7 +8,7 @@ export function BehindTheScenes() {
 				"container mx-auto flex flex-col items-center justify-center p-4 -z-10 max-h-screen overflow-hidden"
 			}
 		>
-			<Image placeholder={"blur"} src={image} alt={"Zuzka blbe"} layout={"fill"} objectFit={"cover"} />
+			<Image placeholder={"blur"} src={image} alt={"Zuzka blbe"} layout={"fill"} objectFit={"cover"}  quality={100}/>
 		</div>
 	);
 }

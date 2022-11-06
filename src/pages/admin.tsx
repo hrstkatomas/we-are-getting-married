@@ -4,7 +4,7 @@ import { prisma } from "../server/db/client";
 export const getServerSideProps: GetServerSideProps<{
 	attendance: {
 		id: number;
-		author: string;
+		author: string | null;
 		going: boolean;
 		numberOfAttendees: number;
 		letter: string | null;
@@ -21,13 +21,13 @@ export const getServerSideProps: GetServerSideProps<{
 			attendance: responses.map(
 				({
 					id,
-					author: { name, email },
+					author: { email },
 					going,
 					numberOfAttendees,
 					letter,
 				}) => ({
 					id,
-					author: `${name} ${email}`,
+					author: email,
 					going,
 					numberOfAttendees,
 					letter,

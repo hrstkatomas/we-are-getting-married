@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { applyTheme, getTheme } from "../utils/theme";
 import { setThemeCookie } from "../utils/cookies";
 import { useTheme } from "../hooks/useTheme";
@@ -9,7 +9,7 @@ export function DarkModeButton() {
 
 	const [toggle, setToggle] = useState(getTheme() === Theme.DARK_THEME);
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const newTheme = toggle ? Theme.DARK_THEME : Theme.LIGHT_THEME;
 		setThemeCookie(newTheme);
 		applyTheme(newTheme);

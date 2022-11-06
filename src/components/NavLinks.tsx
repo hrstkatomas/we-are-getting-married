@@ -32,7 +32,8 @@ export function LinkToHome() {
 	return (
 		<Link href={"/"} legacyBehavior>
 			<a className={"btn btn-success"}>
-				Vše je potvrzeno, můžem jít zpět na přehled.
+				Vše je potvrzeno
+				<br /> Zpět na přehled
 			</a>
 		</Link>
 	);

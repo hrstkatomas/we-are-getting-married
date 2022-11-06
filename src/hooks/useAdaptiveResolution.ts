@@ -23,13 +23,16 @@ export function useScreenSize(): Resolution {
 
 		handleResolutionChange();
 		window.addEventListener("resize", handleResolutionChange);
-		return () => window.removeEventListener("resize", handleResolutionChange);
+		return () =>
+			window.removeEventListener("resize", handleResolutionChange);
 	}, []);
 
 	return resolution;
 }
 
-export function useAdaptiveResolution(configuration: { [key in Resolution]?: number }): number {
+export function useAdaptiveResolution(configuration: {
+	[key in Resolution]?: number;
+}): number {
 	const screenSize = useScreenSize();
 
 	const [closestResolution] =

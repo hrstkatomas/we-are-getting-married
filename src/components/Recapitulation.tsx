@@ -9,12 +9,24 @@ import { CountDown } from "./CountDown";
 export function Recapitulation() {
 	return (
 		<div className="bg-base-100">
-			<div className={"container mx-auto flex flex-col items-center justify-center p-4"}>
+			<div
+				className={
+					"container mx-auto flex flex-col items-center justify-center p-4"
+				}
+			>
 				<Title>Rekapitulace</Title>
 				<div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3 w-full">
 					<div className={"text-base-content"}>
-						<p className={"font-cairo text-3xl font-bold"}>13. května, 10:30 - 11:00</p>
-						<p className={"font-dancing-sript text-xl font-bold my-6"}>to je za</p>
+						<p className={"font-cairo text-3xl font-bold"}>
+							13. května, 10:30 - 11:00
+						</p>
+						<p
+							className={
+								"font-dancing-sript text-xl font-bold my-6"
+							}
+						>
+							to je za
+						</p>
 						<div className={"flex justify-center mb-8"}>
 							<CountDown />
 						</div>

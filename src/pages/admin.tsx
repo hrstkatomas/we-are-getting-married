@@ -2,7 +2,13 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { prisma } from "../server/db/client";
 
 export const getServerSideProps: GetServerSideProps<{
-	attendance: { id: number; author: string; going: boolean; numberOfAttendees: number; letter: string | null }[];
+	attendance: {
+		id: number;
+		author: string;
+		going: boolean;
+		numberOfAttendees: number;
+		letter: string | null;
+	}[];
 }> = async () => {
 	const responses = await prisma.attendance.findMany({
 		include: {
@@ -12,18 +18,28 @@ export const getServerSideProps: GetServerSideProps<{
 
 	return {
 		props: {
-			attendance: responses.map(({ id, author: { name, email }, going, numberOfAttendees, letter }) => ({
-				id,
-				author: `${name} ${email}`,
-				going,
-				numberOfAttendees,
-				letter,
-			})),
+			attendance: responses.map(
+				({
+					id,
+					author: { name, email },
+					going,
+					numberOfAttendees,
+					letter,
+				}) => ({
+					id,
+					author: `${name} ${email}`,
+					going,
+					numberOfAttendees,
+					letter,
+				}),
+			),
 		},
 	};
 };
 
-function Admin({ attendance }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+function Admin({
+	attendance,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
 	return (
 		<div className="overflow-x-auto">
 			<table className="table w-full">
@@ -36,14 +52,16 @@ function Admin({ attendance }: InferGetServerSidePropsType<typeof getServerSideP
 					</tr>
 				</thead>
 				<tbody>
-					{attendance.map(({ id, author, going, numberOfAttendees, letter }) => (
-						<tr key={id}>
-							<th>{author}</th>
-							<td>{going ? "✓" : "✗"}</td>
-							<td>{going ? numberOfAttendees : 0}</td>
-							<td>{letter}</td>
-						</tr>
-					))}
+					{attendance.map(
+						({ id, author, going, numberOfAttendees, letter }) => (
+							<tr key={id}>
+								<th>{author}</th>
+								<td>{going ? "✓" : "✗"}</td>
+								<td>{going ? numberOfAttendees : 0}</td>
+								<td>{letter}</td>
+							</tr>
+						),
+					)}
 				</tbody>
 			</table>
 		</div>

@@ -9,7 +9,8 @@ type DateDifference = {
 	seconds: number;
 };
 
-const dateDifference = (date1: Date, date2: Date): number => date1.getTime() - date2.getTime();
+const dateDifference = (date1: Date, date2: Date): number =>
+	date1.getTime() - date2.getTime();
 
 const formatDateDifference = (difference: number): DateDifference => {
 	const diffDate = new Date(difference);
@@ -31,7 +32,10 @@ type ZeroOneFewMany = {
 	many: string;
 };
 
-const czechPluralization = (count: number, { one, few, many }: ZeroOneFewMany): string => {
+const czechPluralization = (
+	count: number,
+	{ one, few, many }: ZeroOneFewMany,
+): string => {
 	switch (true) {
 		case count === 1:
 			return one;
@@ -48,7 +52,11 @@ type DigitProps = {
 	hideWhenZero?: boolean;
 };
 
-export function Digit({ count, pluralization, hideWhenZero = false }: DigitProps) {
+export function Digit({
+	count,
+	pluralization,
+	hideWhenZero = false,
+}: DigitProps) {
 	if (hideWhenZero && count <= 0) return null;
 	return (
 		<div className="flex flex-col">
@@ -61,7 +69,9 @@ export function Digit({ count, pluralization, hideWhenZero = false }: DigitProps
 }
 
 export function CountDown() {
-	const [dateDiff, setDateDiff] = useState<number>(dateDifference(weddingDate, new Date()));
+	const [dateDiff, setDateDiff] = useState<number>(
+		dateDifference(weddingDate, new Date()),
+	);
 
 	useTimeout(() => {
 		setDateDiff(dateDifference(weddingDate, new Date()));
@@ -69,15 +79,37 @@ export function CountDown() {
 
 	if (dateDiff <= 0) return <p className={"text-3xl"}>Svatba už proběhla.</p>;
 
-	const { months, days, hours, minutes, seconds } = formatDateDifference(dateDiff);
+	const { months, days, hours, minutes, seconds } =
+		formatDateDifference(dateDiff);
 
 	return (
 		<div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-			<Digit hideWhenZero count={months} pluralization={{ one: "měsíc", few: "měsíce", many: "měsíců" }} />
-			<Digit hideWhenZero count={days} pluralization={{ one: "den", few: "dny", many: "dní" }} />
-			<Digit count={hours} pluralization={{ one: "hodina", few: "hodiny", many: "hodin" }} />
-			<Digit count={minutes} pluralization={{ one: "minuta", few: "minuty", many: "minut" }} />
-			<Digit count={seconds} pluralization={{ one: "sekunda", few: "sekundy", many: "sekund" }} />
+			<Digit
+				hideWhenZero
+				count={months}
+				pluralization={{ one: "měsíc", few: "měsíce", many: "měsíců" }}
+			/>
+			<Digit
+				hideWhenZero
+				count={days}
+				pluralization={{ one: "den", few: "dny", many: "dní" }}
+			/>
+			<Digit
+				count={hours}
+				pluralization={{ one: "hodina", few: "hodiny", many: "hodin" }}
+			/>
+			<Digit
+				count={minutes}
+				pluralization={{ one: "minuta", few: "minuty", many: "minut" }}
+			/>
+			<Digit
+				count={seconds}
+				pluralization={{
+					one: "sekunda",
+					few: "sekundy",
+					many: "sekund",
+				}}
+			/>
 		</div>
 	);
 }

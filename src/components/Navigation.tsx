@@ -16,7 +16,12 @@ function Hamburger() {
 				viewBox="0 0 24 24"
 				stroke="currentColor"
 			>
-				<path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+				<path
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					strokeWidth="2"
+					d="M4 6h16M4 12h8m-8 6h16"
+				/>
 			</svg>
 		</label>
 	);
@@ -24,13 +29,23 @@ function Hamburger() {
 
 export function Navigation({ parallaxRef }: NavigationProps) {
 	const pageLinks = [
-		<li key={"whereAndWhen"} onClick={() => parallaxRef.current?.scrollTo(1)}>
+		<li
+			key={"whereAndWhen"}
+			onClick={() => parallaxRef.current?.scrollTo(1)}
+		>
 			<a>Kdy a kde</a>
 		</li>,
 		<li key={"info"} onClick={() => parallaxRef.current?.scrollTo(1.45)}>
 			<a>Info</a>
 		</li>,
-		<li key={"recapitulation"} onClick={() => parallaxRef.current?.scrollTo(window.innerWidth < 768 ? 2.5 : 2.25)}>
+		<li
+			key={"recapitulation"}
+			onClick={() =>
+				parallaxRef.current?.scrollTo(
+					window.innerWidth < 768 ? 2.5 : 2.25,
+				)
+			}
+		>
 			<a>Rekapitulace</a>
 		</li>,
 	];
@@ -46,7 +61,9 @@ export function Navigation({ parallaxRef }: NavigationProps) {
 						{pageLinks}
 					</ul>
 				</div>
-				<a className="btn btn-ghost normal-case text-xl font-dancing-sript">Bude svatba</a>
+				<a className="btn btn-ghost normal-case text-xl font-dancing-sript">
+					Bude svatba
+				</a>
 			</div>
 			<div className="navbar-center hidden lg:flex">
 				<ul className="menu menu-horizontal p-0">{pageLinks}</ul>

@@ -6,7 +6,10 @@ const setThemeCookie = (theme: string): void => {
 };
 
 const getPrefersDarkTheme = (): boolean => {
-	return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+	return (
+		window.matchMedia &&
+		window.matchMedia("(prefers-color-scheme: dark)").matches
+	);
 };
 
 const getThemeCookie = (): string => {
@@ -39,5 +42,12 @@ export function DarkModeButton() {
 		applyTheme(newTheme);
 	}, [toggle]);
 
-	return <input type="checkbox" className="toggle" checked={toggle} onChange={() => setToggle(!toggle)} />;
+	return (
+		<input
+			type="checkbox"
+			className="toggle"
+			checked={toggle}
+			onChange={() => setToggle(!toggle)}
+		/>
+	);
 }

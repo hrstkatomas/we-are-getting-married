@@ -19,18 +19,26 @@ function Attendance() {
 
 	return (
 		<main>
-			<div className={"container mx-auto flex flex-col items-center justify-center p-4"}>
+			<div
+				className={
+					"container mx-auto flex flex-col items-center justify-center p-4"
+				}
+			>
 				<Title>Tady prosím potvrď svou účast</Title>
 				<div>
 					<ul className="steps steps-vertical lg:steps-horizontal m-10">
 						<li
-							className={`step ${step1Done ? "step-primary" : ""} mx-0 lg:mx-10`}
+							className={`step ${
+								step1Done ? "step-primary" : ""
+							} mx-0 lg:mx-10`}
 							data-content={step1Done ? "✓" : undefined}
 						>
 							Registrovat se
 						</li>
 						<li
-							className={`step ${step2Done ? "step-primary" : ""}`}
+							className={`step ${
+								step2Done ? "step-primary" : ""
+							}`}
 							data-content={step2Done ? "✓" : undefined}
 						>
 							Potvrdit účast
@@ -52,7 +60,10 @@ function Attendance() {
 					{step1Done && (
 						<div className="grid card bg-base-300 rounded-box shadow-xl">
 							<div className="card-body">
-								<AttendanceForm attendance={attendance} refetch={() => response.refetch()} />
+								<AttendanceForm
+									attendance={attendance}
+									refetch={() => response.refetch()}
+								/>
 							</div>
 						</div>
 					)}
@@ -80,7 +91,10 @@ const SignIn = ({ session }: SignInProps) => {
 			<>
 				<p>Jsi přihlášen jako {session.user?.email}</p>
 				<div className="card-actions justify-end">
-					<button className="btn btn-primary" onClick={() => signOut()}>
+					<button
+						className="btn btn-primary"
+						onClick={() => signOut()}
+					>
 						Odhlásit se
 					</button>
 				</div>
@@ -92,7 +106,10 @@ const SignIn = ({ session }: SignInProps) => {
 		<>
 			<p>Nejsi přihlášen</p>
 			<div className="card-actions justify-end">
-				<button className="btn btn-primary" onClick={() => signIn("auth0")}>
+				<button
+					className="btn btn-primary"
+					onClick={() => signIn("auth0")}
+				>
 					Přihlásit se
 				</button>
 			</div>
@@ -111,7 +128,10 @@ enum RequestState {
 	SUCCESS,
 }
 
-export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => {
+export const AttendanceForm = ({
+	attendance,
+	refetch,
+}: AttendanceFormProps) => {
 	const [going, setGoing] = useState(true);
 	const [numberOfAttendees, setNumberOfAttendees] = useState(1);
 	const [letter, setLetter] = useState("");
@@ -162,7 +182,9 @@ export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => 
 	return (
 		<>
 			<h2 className="card-title">
-				{attendance ? "Tvou odpověď už známe, můžeš ji však upravit." : "Zde vyplň odpověď"}
+				{attendance
+					? "Tvou odpověď už známe, můžeš ji však upravit."
+					: "Zde vyplň odpověď"}
 			</h2>
 			<div className="form-control">
 				<label className="label cursor-pointer">
@@ -180,12 +202,21 @@ export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => 
 						<span className="label-text">Kolik nás přijde</span>
 						<button
 							className="btn"
-							onClick={() => setNumberOfAttendees((number) => Math.max(1, number - 1))}
+							onClick={() =>
+								setNumberOfAttendees((number) =>
+									Math.max(1, number - 1),
+								)
+							}
 						>
 							-
 						</button>
 						<span>{numberOfAttendees}</span>
-						<button className="btn" onClick={() => setNumberOfAttendees((number) => number + 1)}>
+						<button
+							className="btn"
+							onClick={() =>
+								setNumberOfAttendees((number) => number + 1)
+							}
+						>
 							+
 						</button>
 					</label>
@@ -201,7 +232,11 @@ export const AttendanceForm = ({ attendance, refetch }: AttendanceFormProps) => 
 
 			<div className="card-actions justify-end">
 				<button
-					className={`btn ${requestState === RequestState.SUCCESS ? "btn-success" : "btn-primary"} ${
+					className={`btn ${
+						requestState === RequestState.SUCCESS
+							? "btn-success"
+							: "btn-primary"
+					} ${
 						requestState === RequestState.LOADING ? "loading" : ""
 					}`}
 					onClick={submitForm}

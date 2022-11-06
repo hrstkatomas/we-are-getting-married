@@ -26,7 +26,7 @@ We will be getting married soon, so this is our wedding website
 ## What i am NOT going to address
 
 -   it does not have to be localized, czech language it is.
-- I might not need tests, maybe Ill add some just to make my life easier
+-   I might not need tests, maybe Ill add some just to make my life easier
 
 ## How am i going to achieve it
 
@@ -35,19 +35,20 @@ We will be getting married soon, so this is our wedding website
 -   Sorry, probably no jest tests
 -   I would like to ship it quite fast to be sure production environment is working
 -   Custom domains, `tomazuzkaseberou.cz`
-    - domain nergistered at https://www.domena.cz/
+    -   domain nergistered at https://www.domena.cz/
 -   Hosting at Vercel
-    - I logged in via my github account)
+    -   I logged in via my github account)
 -   Database at Railway
-    - I logged in via my github account)
+    -   I logged in via my github account)
 -   Authentication handled by Auth0
 
 # I would like to learn new stuff
 
 # How to run this locally
+
 -   create .env file and add variables
-    - create [railway](railway.app) postgresQL database (note to myself:
-    - generate NEXTAUTH_SECRET `openssl rand -base64 32`
-    - get Auth0 credentials
+    -   create [railway](railway.app) postgresQL database (note to myself:
+    -   generate NEXTAUTH_SECRET `openssl rand -base64 32`
+    -   get Auth0 credentials
 -   npx prisma db push
 -   npm run dev

@@ -25,16 +25,35 @@ const Home: NextPage = () => {
 				<title>Tom a Zuzka se berou</title>
 			</Head>
 
-			<Parallax pages={7} config={config.default} ref={parallaxRef} className={"z-10"}>
-				<ParallaxLayer offset={0.9999} factor={1.5} speed={0.5} className="bg-base-100">
+			<Parallax
+				pages={7}
+				config={config.default}
+				ref={parallaxRef}
+				className={"z-10"}
+			>
+				<ParallaxLayer
+					offset={0.9999}
+					factor={1.5}
+					speed={0.5}
+					className="bg-base-100"
+				>
 					<SvgClouds />
 				</ParallaxLayer>
 
-				<ParallaxLayer speed={0.1} offset={0.1} className={"bg-base-100"}>
+				<ParallaxLayer
+					speed={0.1}
+					offset={0.1}
+					className={"bg-base-100"}
+				>
 					<HomeImage />
 				</ParallaxLayer>
 
-				<ParallaxLayer factor={0.2} className={"flex flex-col items-center justify-center bg-base-100"}>
+				<ParallaxLayer
+					factor={0.2}
+					className={
+						"flex flex-col items-center justify-center bg-base-100"
+					}
+				>
 					<Header />
 				</ParallaxLayer>
 
@@ -52,14 +71,26 @@ const Home: NextPage = () => {
 					<SvgBackScene />
 				</ParallaxLayer>
 
-				<ParallaxLayer offset={1} speed={0.1} className={"flex flex-col items-center justify-center"}>
+				<ParallaxLayer
+					offset={1}
+					speed={0.1}
+					className={"flex flex-col items-center justify-center"}
+				>
 					<TimeOfArival />
 				</ParallaxLayer>
 
-				<ParallaxLayer offset={1} speed={0.9} className={"pointer-events-none"}>
+				<ParallaxLayer
+					offset={1}
+					speed={0.9}
+					className={"pointer-events-none"}
+				>
 					<SvgMiddleScene />
 				</ParallaxLayer>
-				<ParallaxLayer offset={1} speed={1} className={"pointer-events-none"}>
+				<ParallaxLayer
+					offset={1}
+					speed={1}
+					className={"pointer-events-none"}
+				>
 					<SvgFrontScene />
 				</ParallaxLayer>
 

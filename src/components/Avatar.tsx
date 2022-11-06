@@ -9,14 +9,25 @@ type AvatarProps = {
 	phone: string;
 	email: string;
 };
-export function Avatar({ image, imageAlt, title, name, phone, email }: AvatarProps) {
+export function Avatar({
+	image,
+	imageAlt,
+	title,
+	name,
+	phone,
+	email,
+}: AvatarProps) {
 	const telNoSpaces = phone.replace(/\s/g, "");
 
 	return (
 		<div className="flex items-center space-x-2 m-4">
 			<div className="avatar">
 				<div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-					<Image src={image} alt={imageAlt} className="mask mask-squircle" />
+					<Image
+						src={image}
+						alt={imageAlt}
+						className="mask mask-squircle"
+					/>
 				</div>
 			</div>
 			<div className={"text-left pl-3"}>

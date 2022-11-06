@@ -9,7 +9,10 @@ import type { AppRouter } from "../server/router";
 import type { Session } from "next-auth";
 import "../styles/globals.css";
 
-const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { session, ...pageProps } }) => {
+const MyApp: AppType<{ session: Session | null }> = ({
+	Component,
+	pageProps: { session, ...pageProps },
+}) => {
 	return (
 		<SessionProvider session={session}>
 			<Component {...pageProps} />
@@ -36,7 +39,8 @@ export default withTRPC<AppRouter>({
 				loggerLink({
 					enabled: (opts) =>
 						process.env.NODE_ENV === "development" ||
-						(opts.direction === "down" && opts.result instanceof Error),
+						(opts.direction === "down" &&
+							opts.result instanceof Error),
 				}),
 				httpBatchLink({ url }),
 			],

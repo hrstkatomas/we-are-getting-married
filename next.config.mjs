@@ -21,6 +21,6 @@ export default defineNextConfig({
 		defaultLocale: "cs",
 	},
 	images: {
-		formats: ['image/avif', 'image/webp']
-	}
+		formats: ["image/avif", "image/webp"],
+	},
 });

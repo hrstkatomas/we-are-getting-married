@@ -1,72 +1,9 @@
-import { CSSProperties, useState } from "react";
+import { useState } from "react";
 import { useTimeout } from "../hooks/useTimeout";
-
-type DateDifference = {
-	months: number;
-	days: number;
-	hours: number;
-	minutes: number;
-	seconds: number;
-};
-
-const dateDifference = (date1: Date, date2: Date): number =>
-	date1.getTime() - date2.getTime();
-
-const formatDateDifference = (difference: number): DateDifference => {
-	const diffDate = new Date(difference);
-
-	return {
-		months: diffDate.getMonth(),
-		days: diffDate.getDate() - 1,
-		hours: diffDate.getHours() - 1,
-		minutes: diffDate.getMinutes(),
-		seconds: diffDate.getSeconds(),
-	};
-};
+import { dateDifference, formatDateDifference } from "../utils/dateDiff";
+import { Digit } from "./Digit";
 
 const weddingDate = new Date("2023-05-13T11:30:00.000+02:00");
-
-type ZeroOneFewMany = {
-	one: string;
-	few: string;
-	many: string;
-};
-
-const czechPluralization = (
-	count: number,
-	{ one, few, many }: ZeroOneFewMany,
-): string => {
-	switch (true) {
-		case count === 1:
-			return one;
-		case [2, 3, 4].includes(count):
-			return few;
-		default:
-			return many;
-	}
-};
-
-type DigitProps = {
-	count: number;
-	pluralization: ZeroOneFewMany;
-	hideWhenZero?: boolean;
-};
-
-export function Digit({
-	count,
-	pluralization,
-	hideWhenZero = false,
-}: DigitProps) {
-	if (hideWhenZero && count <= 0) return null;
-	return (
-		<div className="flex flex-col">
-			<span className="countdown font-mono text-4xl">
-				<span style={{ "--value": count } as CSSProperties}></span>
-			</span>
-			{czechPluralization(count, pluralization)}
-		</div>
-	);
-}
 
 export function CountDown() {
 	const [dateDiff, setDateDiff] = useState<number>(

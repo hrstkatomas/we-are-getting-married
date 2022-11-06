@@ -17,7 +17,7 @@ export function Avatar({
 	phone,
 	email,
 }: AvatarProps) {
-	const telNoSpaces = phone.replace(/\s/g, "");
+	const phoneNoSpaces = phone.replace(/\s/g, "");
 
 	return (
 		<div className="flex items-center space-x-2 m-4">
@@ -34,7 +34,7 @@ export function Avatar({
 				<div className="text-base-content/70 text-sm">{title}</div>
 				<div className="text-lg font-extrabold">{name}</div>
 				<div className="text-base-content/70 text-sm">
-					<Link href={`tel:${telNoSpaces}`}>{phone}</Link>
+					<Link href={`tel:${phoneNoSpaces}`}>{phone}</Link>
 				</div>
 				<div className="text-base-content/70 text-sm">
 					<Link href={`mailto:${email}`}>{email}</Link>

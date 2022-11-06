@@ -46,5 +46,3 @@ export function useAdaptiveResolution(configuration: {
 	if (closestResolution === undefined) return 1;
 	return configuration[closestResolution] ?? 1;
 }
-
-//it went unused so far...

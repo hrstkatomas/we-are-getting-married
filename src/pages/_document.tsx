@@ -1,9 +1,9 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { LIGHT_THEME } from "../components/DarkMode";
+import { Theme } from "../enums/Theme";
 
 export default function Document() {
 	return (
-		<Html data-theme={LIGHT_THEME} lang={"cs"}>
+		<Html data-theme={Theme.LIGHT_THEME} lang={"cs"}>
 			<Head>
 				<title>Tom a Zuzka se berou</title>
 				<meta name="description" content="Tom a Zuzka se berou" />

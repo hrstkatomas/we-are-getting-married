@@ -1,7 +1,7 @@
 import { trpc } from "../utils/trpc";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Title } from "../components/Title";
-import { useTheme } from "../components/DarkMode";
+import { useTheme } from "../hooks/useTheme";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 import { Attendance } from "@prisma/client";

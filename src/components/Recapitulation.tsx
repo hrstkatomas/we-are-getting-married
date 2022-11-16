@@ -46,7 +46,7 @@ export function Recapitulation() {
 					<div className={"grid justify-center"}>
 						<Avatar
 							title={"ženich"}
-							name={"Tomáš Hrska"}
+							name={"Tomáš Hrstka"}
 							image={groomAvatar}
 							imageAlt={"avatar ženicha"}
 							phone={"721 325 591"}

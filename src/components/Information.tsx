@@ -57,9 +57,9 @@ export function Information() {
 					</InfoCard>
 					<InfoCard name="Dresscode">
 						Svatba je slavnostní událost, proto prosíme, tepláky
-						nechte doma. S formálností to také není potřeba přehnat,
-						obřad bude v zahradě. Obřad plánujeme v zahradě, proto 
-						nedoporučujeme jehlové podpatky.
+						nechte doma. S formálností to také není potřeba přehnat.
+						Obřad plánujeme v zahradě, a proto nedoporučujeme jehlové
+						podpatky.
 					</InfoCard>
 					<InfoCard name="Dary">
 						Největší radost nám udělá dárek, který se vejde do

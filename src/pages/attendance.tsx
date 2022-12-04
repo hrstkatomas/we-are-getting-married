@@ -24,7 +24,7 @@ function Attendance() {
 					"container mx-auto flex flex-col items-center justify-center p-4"
 				}
 			>
-				<Title>Tady prosím potvrď svou účast</Title>
+				<Title>Tady, prosím, potvrď svou účast</Title>
 				<div>
 					<ul className="steps steps-vertical lg:steps-horizontal m-10">
 						<li
